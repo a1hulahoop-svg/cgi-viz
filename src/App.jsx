@@ -373,7 +373,7 @@ const ControlPanel = ({ scenario, onScenarioChange, stats, isAnimating, onToggle
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-white">CGI Consciousness Visualization</h2>
         <div className="flex items-center space-x-2">
-          <button onClick={onToggleAnimation} className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors border border-blue-400" style={{backgroundColor: '#2563eb', color: 'white'}}>
+          <button onClick={onToggleAnimation} className="flex items-center space-x-2 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
             {isAnimating ? <Pause size={16} /> : <Play size={16} />}
             <span>{isAnimating ? 'Pause' : 'Animate'}</span>
           </button>
@@ -387,7 +387,11 @@ const ControlPanel = ({ scenario, onScenarioChange, stats, isAnimating, onToggle
             <button 
               key={s.key} 
               onClick={() => onScenarioChange(s.key)} 
-              className={`p-3 rounded-lg border-2 transition-all ${scenario === s.key ? 'border-white bg-white text-gray-900' : 'border-gray-600 bg-gray-800 text-gray-300 hover:border-gray-500'}`}
+              className={`p-3 rounded-lg border-2 transition-all ${
+                scenario === s.key 
+                  ? 'border-white bg-gray-800 text-white' 
+                  : 'border-gray-600 bg-gray-800 text-gray-300 hover:border-gray-500'
+              }`}
             >
               <div className="flex items-center space-x-2 mb-1">
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: s.color }} />
@@ -507,12 +511,12 @@ const CGIVisualizationPrototype = () => {
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-xl font-bold text-white">Consciousness Visualization</h3>
           <div className="flex bg-gray-800 rounded-lg p-1">
-            <button onClick={() => setVisualizationMode('3d')} style={{backgroundColor: visualizationMode === '3d' ? '#2563eb' : '#374151', color: 'white', padding: '8px 16px', borderRadius: '6px', border: 'none'}}>
-  3D Plotly
-</button>
-            <button onClick={() => setVisualizationMode('d3')} style={{backgroundColor: visualizationMode === 'd3' ? '#2563eb' : '#374151', color: 'white', padding: '8px 16px', borderRadius: '6px', border: 'none'}}>
-  2D D3.js
-</button>
+            <button onClick={() => setVisualizationMode('3d')} className={`px-4 py-2 rounded-md transition-colors ${visualizationMode === '3d' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'}`}>
+              3D Plotly
+            </button>
+            <button onClick={() => setVisualizationMode('d3')} className={`px-4 py-2 rounded-md transition-colors ${visualizationMode === 'd3' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'}`}>
+              2D D3.js
+            </button>
           </div>
         </div>
 
