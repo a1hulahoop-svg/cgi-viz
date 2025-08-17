@@ -373,7 +373,7 @@ const ControlPanel = ({ scenario, onScenarioChange, stats, isAnimating, onToggle
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-white">CGI Consciousness Visualization</h2>
         <div className="flex items-center space-x-2">
-          <button onClick={onToggleAnimation} className="flex items-center space-x-2 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          <button onClick={onToggleAnimation} className="flex items-center space-x-2 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" style={{backgroundColor: 'blue', color: 'white'}}>
             {isAnimating ? <Pause size={16} /> : <Play size={16} />}
             <span>{isAnimating ? 'Pause' : 'Animate'}</span>
           </button>
@@ -511,10 +511,10 @@ const CGIVisualizationPrototype = () => {
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-xl font-bold text-white">Consciousness Visualization</h3>
           <div className="flex bg-gray-800 rounded-lg p-1">
-            <button onClick={() => setVisualizationMode('3d')} className={`px-4 py-2 rounded-md transition-colors ${visualizationMode === '3d' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'}`}>
+            <button onClick={() => setVisualizationMode('3d')} className="..." style={{backgroundColor: visualizationMode === '3d' ? 'blue' : 'gray', color: 'white'}}>
               3D Plotly
             </button>
-            <button onClick={() => setVisualizationMode('d3')} className={`px-4 py-2 rounded-md transition-colors ${visualizationMode === 'd3' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'}`}>
+            <button onClick={() => setVisualizationMode('3d')} className="..." style={{backgroundColor: visualizationMode === '3d' ? 'blue' : 'gray', color: 'white'}}>
               2D D3.js
             </button>
           </div>
